@@ -1,6 +1,14 @@
+import { useState, type ChangeEvent } from "react"
 
-function App() {
-  
+const App = () => {
+  //http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
+  const [term,SetTerm] = useState("")
+
+  const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    SetTerm(e.target.value)
+    
+  }
+
 
   return (
 
@@ -12,7 +20,9 @@ function App() {
         </h1>
         <p className="text-sm mt-2">Enter Below a place you want to the weather of and select an option from the dropdown</p>
         <div className="flex mt-10 md:mt-4">
-          <input type="text" value={"holla"} className="px-2 py-1 rounded-l-md border-2 border-white bg-white" />
+          <input type="text" value={term} className="px-2 py-1 rounded-l-md border-2 border-white bg-white" 
+          onChange={onInputChange}
+          />
           <button
           className="rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500  text-zinc-100 px-2 py-1 cursor-pointer">
           search
