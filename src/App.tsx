@@ -1,14 +1,28 @@
 import { useState, type ChangeEvent } from "react"
+import { optionType } from "./types"
 
 const App = () => {
-  //http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
-  const [term,SetTerm] = useState("")
+  const [options,SetOptions] = useState<[]>([])
+  const [term,SetTerm] = useState<string>("")
 
-  const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    SetTerm(e.target.value)
-    
+  const getSearchOptions = (value:string) => {
+    const apiKey = import.meta.env.VITE_API_KEY;
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${apiKey}`)
+    .then(res => res.json())
+    .then(data => SetOptions(data))
   }
 
+  const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.trim()
+    SetTerm(value)
+    if(value === "") return
+    getSearchOptions(value)
+  }
+
+  const onOptionSelect = (option ) => {
+    // do something
+  }
+  
 
   return (
 
@@ -19,10 +33,21 @@ const App = () => {
           <span className="font-black"> Forecast</span> 
         </h1>
         <p className="text-sm mt-2">Enter Below a place you want to the weather of and select an option from the dropdown</p>
-        <div className="flex mt-10 md:mt-4">
+        <div className="flex mt-10 md:mt-4 relative">
           <input type="text" value={term} className="px-2 py-1 rounded-l-md border-2 border-white bg-white" 
           onChange={onInputChange}
           />
+          <ul className="absolute top-9 bg-white ml-1 rounded-b-md">
+            {options.map((option: optionType, index:number) => (
+              <li key={option.name + '-' + index}>
+                <button className="text-left text-sm w-full hover:bg-zinc-700 hover:text-white px-2 py-1 cursor-pointer" 
+                onClick={() => onOptionSelect(option)}>
+                  {option.name}
+                </button>
+              </li>
+              
+              ))}
+          </ul>
           <button
           className="rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500  text-zinc-100 px-2 py-1 cursor-pointer">
           search
