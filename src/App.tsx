@@ -4,9 +4,9 @@ import { optionType } from "./types"
 const App = () => {
   const [options,SetOptions] = useState<[]>([])
   const [term,SetTerm] = useState<string>("")
+  const apiKey = import.meta.env.VITE_API_KEY
 
   const getSearchOptions = (value:string) => {
-    const apiKey = import.meta.env.VITE_API_KEY;
     fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${apiKey}`)
     .then(res => res.json())
     .then(data => SetOptions(data))
@@ -19,10 +19,13 @@ const App = () => {
     getSearchOptions(value)
   }
 
-  const onOptionSelect = (option ) => {
-    // do something
+  const onOptionSelect = (option: optionType ) => {
+    console.log(option.name)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${option.lat}&lon=${option.lon}&uniys=metric&appid=${apiKey}`)
+    .then(res => res.json())
+    .then(data=>console.log({data}))
   }
-  
+  // 
 
   return (
 
