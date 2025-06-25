@@ -1,5 +1,11 @@
+import { ChangeEvent } from "react"
+import { optionType } from "../types"
 type Props = {
-  term: string
+  term: string,
+  options: [],
+  onInputChange: (e: ChangeEvent<HTMLInputElement>) => void, 
+  onOptionSelect: (option: optionType) => void, 
+  onSubmit: () => void
 }
 const Search = ({
   term, 
@@ -7,7 +13,7 @@ const Search = ({
   onInputChange, 
   onOptionSelect, 
   onSubmit
-}) => {
+}: Props) => {
  
   return (
 
