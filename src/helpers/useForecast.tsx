@@ -27,7 +27,7 @@ const useForecast = () => {
     .then(data => {
       const forecastData = {
         ...data.city,
-        list: data.list.sclice(0, 16),
+        list: data.list.slice(0, 16),
       }
     SetForecast(forecastData)})
   }
