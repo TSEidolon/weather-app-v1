@@ -12,6 +12,7 @@ const useForecast = () => {
     fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${apiKey}`)
     .then(res => res.json())
     .then(data => SetOptions(data))
+    .catch((e) => console.log({e}))
   }
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -29,8 +30,14 @@ const useForecast = () => {
         ...data.city,
         list: data.list.slice(0, 16),
       }
-    SetForecast(forecastData)})
+    SetForecast(forecastData)
+  })
+    .catch((e) => console.log({e}));
+    
   }
+    
+  
+
   const onSubmit = () => {
     if(!city) return
     getForcast(city)
