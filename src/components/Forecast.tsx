@@ -17,17 +17,17 @@ const Degree = ({temp}: {temp: number}) => (
 const Forecast = ({data}: Props) => {
   const today = data.list[0]
   return (
-    <div className="w-full md:max-w-[500px] p-4  md:px-10 lg:p-14 h-full lg:h-[500px] bg-white/20 backdrop-blur-lg rounded drop-shadow-lg text-zinc-700">
-      <div className="mx-auto w-[300px]">
+    <div className="w-full md:max-w-[500px] p-4 my-5 md:px-10 lg:p-14 h-full  bg-[var(--tertiary-color)] rounded drop-shadow-lg text-zinc-700">
+      <div className="mx-auto w-[300px] text-[var(--secondary-color)]">
         <section className="text-center">
-          <h2 className="text-2xl font-black">{data.name},
+          <h2 className="text-2xl ">{data.name},
             <span className="font-thin">{data.country}
             </span>
           </h2>
-          <h1 className="text-4xl font-extrabold">
+          <h1 className="text-4xl font-extrabold text-[#FFC857]">
             <Degree temp={Math.round(today.main.temp)}/>
           </h1>
-          <p className="text-sm">{today.weather[0].main} {today.weather[0].description}</p>
+          <p className="text-sm ">{today.weather[0].main} {today.weather[0].description}</p>
           <p>
             H: <Degree temp={Math.ceil(today.main.temp_max)}/>
             L: <Degree temp={Math.floor(today.main.temp_min)}/>
@@ -41,18 +41,18 @@ const Forecast = ({data}: Props) => {
                 {i === 0 ? 'Now' : new Date(item.dt* 1000).getHours()}
               </p>
               <img src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`} alt={`weather-icon-${item.weather[0].description}`} />
-              <p>
-                <Degree temp={Math.round(item.main.temp)} />
+              <p className="text-[#FFC857]">
+                <Degree  temp={Math.round(item.main.temp)} />
               </p>
             </div>
           ))}
         </section>
-        <section className="flex flex-wrap justify-between text-zinc-700">
+        <section className="flex flex-wrap justify-between ">
           <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-ls rounded drop-shadow-lg py-4 mb-5" >
-            <Sunrise /> <span className="mt-2">{getSunTime(data.sunrise)}</span>
+            <Sunrise /> <span className="mt-2 text-[#FAFAFA]">{getSunTime(data.sunrise)}</span>
           </div>
           <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-ls rounded drop-shadow-lg py-4 mb-5" >
-            <Sunset /> <span className="mt-2">{getSunTime(data.sunset)}</span>
+            <Sunset /> <span className="mt-2 text-[#FAFAFA]">{getSunTime(data.sunset)}</span>
           </div>
 
           {/* {Wind} */}
