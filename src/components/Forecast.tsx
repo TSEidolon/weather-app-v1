@@ -17,7 +17,7 @@ const Degree = ({temp}: {temp: number}) => (
 const Forecast = ({data}: Props) => {
   const today = data.list[0]
   return (
-    <div className="w-full md:max-w-[500px] p-4 my-5 md:px-10 lg:p-14 h-full  bg-[var(--tertiary-color)] rounded drop-shadow-lg text-zinc-700">
+    <div className="w-full md:max-w-[500px] p-4 my-5 md:px-10 lg:p-14 h-full  bg-[var(--tertiary-color)] rounded drop-shadow-lg">
       <div className="mx-auto w-[300px] text-[var(--secondary-color)]">
         <section className="text-center">
           <h2 className="text-2xl ">{data.name},
