@@ -34,7 +34,7 @@ const Tile = ({
     <div className="w-[140px] h-[130px] md:w-[194px] md:h-[142px] text-[var(--secondary-color)] bg-[var(--primary-color)]/50 backdrop-blur-lg rounded drop-shadow-lg p-2 mb-5 flex flex-col justify-evenly text-center">
       <div className="flex items-center justify-center text-sm  text-[#FFC857] gap-2">
         <Icon /> 
-        <h4 className="text-[var(--secondary-color)]">
+        <h4 className="text-[var(--secondary-color)] font-semibold">
           {title}
         </h4>
       </div>
