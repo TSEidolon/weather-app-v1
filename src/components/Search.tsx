@@ -17,9 +17,9 @@ const Search = ({
  
   return (
 
-    <main className="flex justify-center items-center bg-[var(--primary-color)] h-[100vh] w-full">
+    <main className="bg-[url(../images/bandura.jpg)] bg-cover bg-center bg-no-repeat flex justify-center items-center bg-[var(--primary-color)] h-[100vh] w-full">
       
-      <section className="w-full md:max-w-[500px] p-4 flex flex-col text-center items-center justify-center md:px-10 lg:p-14 h-full lg:h-[500px] bg-white/20 backdrop-blur-lg rounded drop-shadow-lg ">
+      <section className="w-full md:max-w-[500px] p-4 flex flex-col text-center items-center justify-center md:px-10 lg:p-14 h-full lg:h-[500px] bg-black/20 backdrop-blur-lg rounded drop-shadow-lg ">
         <h1 className="text-4xl font-thin text-[var(--secondary-color)]">Weather
           <span className="font-black text-[var(--quarternary-color)]"> Forecast</span> 
         </h1>
