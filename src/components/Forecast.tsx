@@ -61,7 +61,7 @@ const Forecast = ({data}: Props) => {
               <span className="text-xs md:text-2xl  text-[var(--quarternary-color)]">
                 {getSunTime(data.sunset)}
               </span>
-              <p className="text-xs md:text-xl font-thin">Sunrise</p>
+              <p className="text-xs md:text-xl font-thin">Sunset</p>
             </div>
           </div>
           <div className="tile-container flex flex-wrap justify-between">

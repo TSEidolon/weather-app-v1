@@ -25,7 +25,7 @@ const Search = ({
         </h1>
         <p className="text-sm mt-2 text-[var(--secondary-color)]">Enter Below a place you want to the weather of and select an option from the dropdown</p>
         <div className="flex mt-10 md:mt-4 relative">
-          <input type="text" value={term} className="px-2 py-1 rounded-l-md  bg-white focus:outline-none focus:ring-0" 
+          <input type="text" value={term} className="px-2 py-1 rounded-l-sm  bg-white focus:outline-none focus:ring-0" 
           onChange={onInputChange}
           />
           <ul className="absolute top-9 bg-white ml-1 rounded-b-md">
@@ -40,8 +40,8 @@ const Search = ({
               ))}
           </ul>
           <button
-          className="rounded-r-md border-2 border-[var(--secondary-color)] hover:border-[var(--quarternary-color)] hover:text-[var(--quarternary-color)] hover:bg-[var(--primary-color)] text-[var(--secondary-color)] px-2 py-1 cursor-pointer" onClick={onSubmit}>
-          search
+          className="rounded-r-sm border-2 border-[var(--secondary-color)] hover:border-[var(--quarternary-color)] hover:text-[var(--quarternary-color)] hover:bg-[var(--primary-color)] text-[var(--secondary-color)] px-2 py-1 cursor-pointer" onClick={onSubmit}>
+          Search
           </button>
         </div>
         
