@@ -17,9 +17,9 @@ const Degree = ({temp}: {temp: number}) => (
 const Forecast = ({data}: Props) => {
   const today = data.list[0]
   return (
-    <div className="w-full md:max-w-[500px] p-4 my-5 md:px-10 lg:p-14 h-full  bg-[var(--tertiary-color)] rounded drop-shadow-lg">
-      <div className="mx-auto w-[300px] text-[var(--secondary-color)]">
-        <section className="text-center">
+    <div className="forecast-container bg-[var(--primary-color)]/50 backdrop-blur-lg w-full  max-w-[500px] md:max-w-[700px] p-4 my-5 md:px-10  h-screen   rounded drop-shadow-lg">
+      <div className="content-area md:h-full mx-auto flex flex-col justify-center w-[300px] md:w-[620px] text-[var(--secondary-color)]">
+        <section className="weather-header text-center">
           <h2 className="text-2xl ">{data.name},
             <span className="font-thin">{data.country}
             </span>
@@ -34,7 +34,7 @@ const Forecast = ({data}: Props) => {
           </p>
 
         </section>
-        <section className="flex overflow-x-scroll mt-4 pb-2 mb-5">
+        <section className="weather-icon-area flex overflow-x-scroll mt-4 pb-2 mb-5">
           {data.list.map((item, i) => (
             <div key={i} className="inline-block text-center w-[50px] flex-shrink-0">
               <p className="text-sm font-bold">
@@ -47,14 +47,24 @@ const Forecast = ({data}: Props) => {
             </div>
           ))}
         </section>
-        <section className="flex flex-wrap justify-between ">
-          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-ls rounded drop-shadow-lg py-4 mb-5" >
-            <Sunrise /> <span className="mt-2 text-[#FAFAFA]">{getSunTime(data.sunrise)}</span>
+        <section className="tile-area flex justify-between gap-5 flex-wrap  ">
+          <div className="sunset-container flex w-full  justify-between ">
+            <div className="w-[140px] md:w-[300px] font-bold flex justify-center items-center bg-[var(--primary-color)]/50 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5 h-full gap-2 md:gap-5" >
+              <Sunrise/> 
+              <span className="text-xs md:text-2xl  text-[var(--quarternary-color)]">
+                {getSunTime(data.sunrise)}
+              </span>
+              <p className="text-xs md:text-xl font-thin">Sunrise</p>
+            </div>
+            <div className="w-[140px] md:w-[300px] font-bold flex justify-center items-center bg-[var(--primary-color)]/50 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5 h-full gap-2 md:gap-5" >
+              <Sunset /> 
+              <span className="text-xs md:text-2xl  text-[var(--quarternary-color)]">
+                {getSunTime(data.sunset)}
+              </span>
+              <p className="text-xs md:text-xl font-thin">Sunrise</p>
+            </div>
           </div>
-          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-ls rounded drop-shadow-lg py-4 mb-5" >
-            <Sunset /> <span className="mt-2 text-[#FAFAFA]">{getSunTime(data.sunset)}</span>
-          </div>
-
+          <div className="tile-container flex flex-wrap justify-between">
           {/* {Wind} */}
           <Tile 
           icon="wind" 
@@ -105,6 +115,7 @@ const Forecast = ({data}: Props) => {
           info={`${(today.visibility / 1000).toFixed()} km`}
           description={getVisibilityValue(today.visibility)}
           />
+          </div>
         </section>
       </div>
     </div>

@@ -10,7 +10,7 @@ const App = () => {
 
   return (
 
-    <main className="flex justify-center items-center bg-[var(--primary-color)] h-full w-full">
+    <main className="bg-[url(../images/bandura.jpg)] bg-cover bg-center bg-no-repeat flex justify-center items-center bg-[var(--primary-color)] h-full w-full">
       { forecast ? (
         <Forecast data={forecast} />
       ) : (

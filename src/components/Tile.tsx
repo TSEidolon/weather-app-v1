@@ -31,7 +31,7 @@ const Tile = ({
 
   const Icon = icons[icon]
   return (
-    <div className="w-[140px] h-[130px] text-[var(--secondary-color)] bg-white/20 backdrop-blur-lg rounded drop-shadow-lg p-2 mb-5 flex flex-col justify-between">
+    <div className="w-[140px] h-[130px] md:w-[194px] md:h-[142px] text-[var(--secondary-color)] bg-[var(--primary-color)]/50 backdrop-blur-lg rounded drop-shadow-lg p-2 mb-5 flex flex-col justify-between">
       <div className="flex items-center text-sm font-bold text-[#FFC857]">
         <Icon /> <h4 className="ml-1 text-[var(--secondary-color)]">{title}</h4>
       </div>
