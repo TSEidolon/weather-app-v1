@@ -28,8 +28,9 @@ const Forecast = ({data}: Props) => {
             <Degree temp={Math.round(today.main.temp)}/>
           </h1>
           <p className="text-sm ">{today.weather[0].main} {today.weather[0].description}</p>
-          <p>
+          <p className="flex justify-center items-center gap-2">
             H: <Degree temp={Math.ceil(today.main.temp_max)}/>
+            
             L: <Degree temp={Math.floor(today.main.temp_min)}/>
           </p>
 

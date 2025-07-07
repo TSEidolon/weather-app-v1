@@ -1,4 +1,30 @@
-# React + TypeScript + Vite
+# Weather app made with Typescript, React, and Tailwind 
+
+I wanted to practice typescript and API handling; This project encompasses both of these topics. 
+This project features a search field that suggests the top 5 locations based on user input via an API. Upon submission, another API call retrieves the weather data.
+
+Uses the Current Weather API from [OpenWeather](https://openweathermap.org/current)
+
+Based on the Weather API Challenge by [danascript](https://theultimateapichallenge.com/challenges/weather-typescript-api)
+
+![Search Page](image.png)
+![Main Page](image-1.png)
+
+Live Website: [Weather App]()
+
+Mockup Made in Figma: [Figma Mockup](https://www.figma.com/design/QENyRFgzuzgAXExchpsm29/Weather-App?node-id=0-1&t=Ffq3J105OrmtKjTU-1)
+
+Attributions:
+- Ivan Bandura - [blue and white clouds during daytime](https://unsplash.com/photos/blue-and-white-clouds-during-daytime-Ht8n5GGzXuM)
+- Freepik - [Chameleon Icon](https://www.flaticon.com/free-icon/chameleon_7336277?term=chameleon&page=1&position=76&origin=search&related_id=7336277)
+
+Tools Used
+- React
+- Typescript
+- Tailwind
+
+
+---
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
