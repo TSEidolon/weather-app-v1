@@ -1,4 +1,4 @@
-const Wind = (): JSX.Element => (
+const Wind = () => (
   <svg
     width="15"
     height="15"

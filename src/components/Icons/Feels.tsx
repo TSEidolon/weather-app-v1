@@ -1,4 +1,4 @@
-const Feels = (): JSX.Element => (
+const Feels = () => (
   <svg
     width="15"
     height="15"

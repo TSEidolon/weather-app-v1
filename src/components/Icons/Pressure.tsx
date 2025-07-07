@@ -1,4 +1,4 @@
-const Pressure = (): JSX.Element => (
+const Pressure = () => (
   <svg
     width="15"
     height="15"
