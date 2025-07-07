@@ -9,7 +9,7 @@ const useForecast = () => {
   const apiKey = import.meta.env.VITE_API_KEY;
 
   const getSearchOptions = (value:string) => {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${apiKey}`)
     .then(res => res.json())
     .then(data => SetOptions(data))
     .catch((e) => console.log({e}))
